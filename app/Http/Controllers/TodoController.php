@@ -20,6 +20,7 @@ class TodoController extends Controller
 
          $todo = $request->title;
          Todo::create(['title' => $todo ]);
+         return redirect()->back()->with('success',"Todo created Succesfully!");
     }
     public function edit(){
         return "hii";

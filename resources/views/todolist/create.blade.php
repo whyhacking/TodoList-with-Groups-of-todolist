@@ -9,6 +9,9 @@
 <body style="text-align:center">
     
     <h1>Create ToDo List</h1>
+    <h3>
+        <x-alert />
+    </h3>
     <form action="/update" method="post">
         @csrf
         <input type="text" name="title" />
