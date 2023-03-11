@@ -9,7 +9,8 @@ class TodoController extends Controller
 {
     
     public function index(){
-        return "hii";
+        $todos = Todo::all();
+        return view('todolist.index')->with(['todos' => $todos]);
     }
 
     public function create(){
