@@ -20,4 +20,5 @@ Route::get('/', function () {
 Route::get('/index', [TodoController::class , 'index']);
 Route::get('/create', [TodoController::class , 'create']);
 Route::post('/update', [TodoController::class , 'update']);
-Route::get('/edit', [TodoController::class , 'edit']);
+Route::get('/{id}/edit', [TodoController::class , 'edit']);
+Route::patch('/modify', [TodoController::class , 'modify']);
