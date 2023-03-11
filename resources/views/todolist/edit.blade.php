@@ -9,7 +9,9 @@
 <body>
 <body style="text-align:center">
 <h1>Edit ToDo List</h1>
-    
+    <h3>
+        <x-alert />
+    </h3>
     <form action="/modify" method="post">
         @csrf
         @method('patch')

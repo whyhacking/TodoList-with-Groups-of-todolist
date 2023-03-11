@@ -16,6 +16,8 @@
         <li>
             {{$todo->title}}
             <a href="{{asset('/' . $todo->id . '/edit')}}">Edit</a>
+            <a href="{{asset('/' . $todo->id . '/completed')}}">Completed</a>
+            <a href="{{asset('/' . $todo->id . '/delete')}}">Delete</a>
         </li>
     @endforeach
 </body>

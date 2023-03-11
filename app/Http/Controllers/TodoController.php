@@ -24,7 +24,7 @@ class TodoController extends Controller
 
          $todo = $request->title;
          Todo::create(['title' => $todo ]);
-         return redirect()->back()->with('success',"Todo created Succesfully!");
+         return redirect('/index')->with('success',"Todo created Succesfully!");
     }
     public function edit($id){
         $todo =Todo::find($id);
@@ -43,5 +43,22 @@ class TodoController extends Controller
 
     }
 
+    public function completed($id){
+        $todo = Todo::find($id);
+        if ($todo->completed){
+            $todo->update(['completed' => false]);
+            return redirect()->back()->with('success',"Todo marked as incompleted!");
+        }else {
+            $todo->update(['completed' => True]);
+            return redirect()->back()->with('success',"Todo marked as completed!");
+        }    
+    }
+    public function delete($id){
+        $todo = Todo::find($id);
+        $todo->delete();
+        
+        return redirect()->back()->with('success',"Todo deleted Successfully!");
+           
+    }
 
 }
