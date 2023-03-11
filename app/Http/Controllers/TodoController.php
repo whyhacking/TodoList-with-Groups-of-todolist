@@ -17,6 +17,9 @@ class TodoController extends Controller
     }
 
     public function update(Request $request){
+        $request->validate([
+            'title' => 'required|max:255'
+        ]);
 
          $todo = $request->title;
          Todo::create(['title' => $todo ]);
