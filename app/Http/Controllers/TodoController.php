@@ -24,7 +24,7 @@ class TodoController extends Controller
 
          $todo = $request->title;
          Todo::create(['title' => $todo ]);
-         return redirect('/index')->with('success',"Todo created Succesfully!");
+         return redirect('/create')->with('success',"Todo created Succesfully!");
     }
     public function edit($id){
         $todo =Todo::find($id);
