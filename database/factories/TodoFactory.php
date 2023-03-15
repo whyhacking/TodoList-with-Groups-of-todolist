@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Todo>
  */
@@ -18,6 +19,9 @@ class TodoFactory extends Factory
     {
         return [
             //
+            'title' => fake()->word(2),
+            'group' => fake()->numberBetween(1,5),
+            'completed' => fake()->boolean()
         ];
     }
 }
