@@ -9,8 +9,9 @@ class TodoController extends Controller
 {
     
     public function index(){
-        $todos = Todo::all();
-        return view('todolist.index')->with(['todos' => $todos]);
+        $todos = Todo::orderBy('group')->get();
+        
+        return view('todolist.index',compact('todos'));
     }
 
     public function create(){
@@ -21,9 +22,9 @@ class TodoController extends Controller
         $request->validate([
             'title' => 'required|max:255'
         ]);
-
+         $grp = $request->group + 1; 
          $todo = $request->title;
-         Todo::create(['title' => $todo ]);
+         Todo::create(['title' => $todo, 'group' => $grp ]);
          return redirect('/index')->with('success',"Todo created Succesfully!");
     }
     public function edit($id){
@@ -39,7 +40,22 @@ class TodoController extends Controller
          $modifyTodo->update(['title' => $request->title]);
 
         return redirect('/index')->with('success',"Todo edited Succesfully!");
-    
+    }
+    public function grouplist($group){
+        
+        $fgroup = Todo::where('group', $group)->first();
+        $rgroups = Todo::where('group', $group)->get();
+       
+        return view('todolist.grouplist', compact('fgroup','rgroups'));
+    }
+    public function groupmodify(Request $request){
+        $request->validate([
+            'title' => 'required|max:255'
+        ]);
+        $modifyname = $request->title;
+        $modifygrp = $request->group;
+        Todo::create(['title' => $modifyname, 'group' => $modifygrp]);
+        return redirect('/' . $modifygrp . '/grouplist')->with('success',"Todo created Succesfully!");
 
     }
 

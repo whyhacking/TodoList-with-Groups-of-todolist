@@ -15,3 +15,5 @@ Route::get('/{id}/edit', [TodoController::class , 'edit']);
 Route::patch('/modify', [TodoController::class , 'modify']);
 Route::get('/{id}/completed', [TodoController::class , 'completed']);
 Route::get('/{id}/delete', [TodoController::class , 'delete']);
+Route::get('/{group}/grouplist', [TodoController::class , 'grouplist']);
+Route::patch('/addgroup', [TodoController::class , 'groupmodify']);
