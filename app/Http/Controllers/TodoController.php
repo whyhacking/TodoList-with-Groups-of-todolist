@@ -70,11 +70,17 @@ class TodoController extends Controller
         }    
     }
     public function delete($id){
-        $todo = Todo::find($id);
-        $todo->delete();
+       $todo = Todo::find($id);   
+       $todo->delete();
         
-        return redirect()->back()->with('success',"Todo deleted Successfully!");
+       return redirect()->back()->with('success',"Todo deleted Successfully!");
            
     }
-
+    public function deletegrp($group){
+        $todo = Todo::where('group',$group)->delete();   
+        //$todo->delete();
+        
+        return redirect()->back()->with('success',"Todo deleted Successfully!");
+            
+     }
 }

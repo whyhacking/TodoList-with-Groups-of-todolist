@@ -67,14 +67,13 @@
             
             <a class="link-dark fs-4 position-static  "  href="{{asset('/' . $todo->id . '/edit')}}"><i class="bi bi-pencil-square" ></i>
             </a>
-            <button style="float: right;margin-left: 10px;margin-top: 5px; " type="button" class="btn-close position-static" aria-label="Close" onclick="window.location.href='{{asset('/' . $todo->id . '/delete')}}';" ></button>
+            <button style="float: right;margin-left: 10px;margin-top: 5px; " type="button" class="btn-close position-static" aria-label="Close" onclick="window.location.href='{{asset('/' . $todo->group . '/deletegrp')}}';" ></button>
            
 </li>
 </div>
 @break
     @endif
-        
-    
+  
 @endforeach
     
     @endfor
