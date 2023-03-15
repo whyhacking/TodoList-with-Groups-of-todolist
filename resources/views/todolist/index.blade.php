@@ -36,7 +36,7 @@
        
     </form>
   
-  @for($i=1;$i <= count($todos);$i++)
+  @for($i=0;$i <= count($todos);$i++)
     @foreach ($todos as $todo)
     
     @if ($todo->group == $i)
