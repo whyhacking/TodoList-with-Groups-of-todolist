@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo List | Groups</title>
+    <title>ToDo List | Tasks</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
@@ -59,7 +59,7 @@
             
            </div>
            
-           <a class="list-group-item list-group-item-action border-start-0 border-top-0 border-end-0 border-bottom-0" ></a>
+           <span class="list-group-item list-group-item-action border-start-0 border-top-0 border-end-0 border-bottom-0" ></span>
             
             
             <a class="link-dark fs-4 position-static " href="{{asset('/' . $rgroup->id . '/edit')}}"><i class="bi bi-pencil-square" ></i>

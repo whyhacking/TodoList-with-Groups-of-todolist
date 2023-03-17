@@ -10,8 +10,8 @@ class TodoController extends Controller
     
     public function index(){
         $todos = Todo::orderBy('group')->get();
-        
-        return view('todolist.index',compact('todos'));
+        $max=Todo::max('group')+1;
+        return view('todolist.index',compact('todos','max'));
     }
 
     public function create(){

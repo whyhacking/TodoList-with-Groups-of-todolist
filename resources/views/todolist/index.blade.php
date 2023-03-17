@@ -28,7 +28,7 @@
         <div class="form-outline flex-fill">
         <input type="text" name="title" class="form-control form-control-lg"/>
 
-        <input style="display:none" type="number" name="group" value="{{$todos->max('group')}}">
+        <input style="display:none" type="number" name="group" value="{{$max}}">
         
         </div>
         <input type="submit" value="Create" class="btn btn-primary btn-lg ms-2"/>
@@ -36,35 +36,28 @@
        
     </form>
   
-  @for($i=0;$i <= count($todos);$i++)
+  @for($i=1;$i < $max +1;$i++)
+    
     @foreach ($todos as $todo)
     
-    @if ($todo->group == $i)
+      @if ($todo->group == $i)
         
 
         <div class="list-group mb-0">
           <li class="list-group-item d-flex border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2">  
-        
-        <div class="d-flex ">
-        
-        </div>
-        
-            @if($todo->completed)
-                <button type="button" class="btn btn-danger" style="margin-right: 5px;" onclick="window.location.href='{{asset('/' . $todo->id . '/completed')}}';">✖</button>
-                <span style="text-decoration:line-through">
-                   
-            <a class="list-group-item list-group-item-action border-start-0 border-top-0 border-end-0 border-bottom-0" href="{{asset('/' . $todo->group . '/grouplist')}}">{{$todo->title}}</a>
-            
-                </span>
-            @else
-                <button type="button" class="btn btn-success" style="margin-right: 4px;" onclick="window.location.href='{{asset('/' . $todo->id . '/completed')}}';">☑</button>
+                <div class="d-flex "></div>
+                          
+                  @if($todo->completed)
+                      <button type="button" class="btn btn-danger" style="margin-right: 5px;" onclick="window.location.href='{{asset('/' . $todo->id . '/completed')}}';">✖</button>
+                      <span style="text-decoration:line-through">
+                  <a class="list-group-item list-group-item-action border-start-0 border-top-0 border-end-0 border-bottom-0" href="{{asset('/' . $todo->group . '/grouplist')}}">{{$todo->title}}</a>
+                      </span>
+                  @else
+                      <button type="button" class="btn btn-success" style="margin-right: 4px;" onclick="window.location.href='{{asset('/' . $todo->id . '/completed')}}';">☑</button>
+                      
+                  <a class="list-group-item list-group-item-action border-start-0 border-top-0 border-end-0 border-bottom-0" href="{{asset('/' . $todo->group . '/grouplist')}}">{{$todo->title}}</a>
+                  @endif
                 
-            <a class="list-group-item list-group-item-action border-start-0 border-top-0 border-end-0 border-bottom-0" href="{{asset('/' . $todo->group . '/grouplist')}}">{{$todo->title}}</a>
-                
-            @endif
-           
-            
-            
             <a class="link-dark fs-4 position-static  "  href="{{asset('/' . $todo->id . '/edit')}}"><i class="bi bi-pencil-square" ></i>
             </a>
             <button style="float: right;margin-left: 10px;margin-top: 5px; " type="button" class="btn-close position-static" aria-label="Close" onclick="window.location.href='{{asset('/' . $todo->group . '/deletegrp')}}';" ></button>
@@ -80,7 +73,7 @@
    
     
 
-
+</section>
 
 </body>
 </html>
